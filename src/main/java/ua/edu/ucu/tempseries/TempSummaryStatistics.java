@@ -6,7 +6,8 @@ public final class TempSummaryStatistics {
     private double minTemp;
     private double maxTemp;
 
-    public TempSummaryStatistics(double avg, double dev, double min, double max) {
+    public TempSummaryStatistics(double avg, double dev,
+                                 double min, double max) {
         avgTemp = avg;
         devTemp = dev;
         minTemp = min;
@@ -31,8 +32,8 @@ public final class TempSummaryStatistics {
 
     @Override
     public int hashCode() {
-        return Double.valueOf(avgTemp + minTemp +
-                maxTemp + devTemp).hashCode();
+        return Double.valueOf(avgTemp + minTemp
+                + maxTemp + devTemp).hashCode();
     }
 
     @Override

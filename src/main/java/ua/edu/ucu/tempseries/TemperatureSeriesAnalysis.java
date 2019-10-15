@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysis {
     private double[] temperatureSerie;
-    final static int MIN_TEMP = -273;
+    static final int MIN_TEMP = -273;
     private int temperaturesNumber;
     private int temperaturesCapacity;
 
@@ -44,8 +44,8 @@ public class TemperatureSeriesAnalysis {
         double sqDiff = 0;
         double mean = average();
         for (int i = 0; i < temperaturesNumber; i++) {
-            sqDiff += (temperatureSerie[i] - mean) *
-                    (temperatureSerie[i] - mean);
+            sqDiff += (temperatureSerie[i] - mean)
+                    *(temperatureSerie[i] - mean);
         }
         return sqDiff / temperaturesNumber;
     }
@@ -85,17 +85,18 @@ public class TemperatureSeriesAnalysis {
         double closestPositive = temperatureSerie[0];
         double closestNegative = temperatureSerie[0];
         for (int i = 0; i < temperaturesNumber; i++) {
-            if (temperatureSerie[i] > 0 &&
-                    Math.abs(temperatureSerie[i] - 0) <
-                    Math.abs(closestPositive - tempValue)) {
+            if (temperatureSerie[i] > 0
+                    && Math.abs(temperatureSerie[i] - 0)
+                    < Math.abs(closestPositive - tempValue)) {
                 closestPositive = temperatureSerie[i];
             } else if (temperatureSerie[i] < 0
-                    && Math.abs(temperatureSerie[i] - 0) <
-                    Math.abs(closestNegative - tempValue)) {
+                    && Math.abs(temperatureSerie[i] - 0)
+                    < Math.abs(closestNegative - tempValue)) {
                 closestNegative = temperatureSerie[i];
             }
         }
-        if (Math.abs(closestPositive - tempValue) <= Math.abs(closestNegative - tempValue)) {
+        if (Math.abs(closestPositive - tempValue) <=
+                Math.abs(closestNegative - tempValue)) {
             return closestPositive;
         } else {
             return closestNegative;
@@ -150,7 +151,8 @@ public class TemperatureSeriesAnalysis {
         }
         else if (temperaturesCapacity == temperaturesNumber) {
             double[] newArray = new double[2 * temperaturesCapacity];
-            System.arraycopy(temperatureSerie, 0, newArray, 0, temperaturesNumber);
+            System.arraycopy(temperatureSerie, 0,
+                    newArray, 0, temperaturesNumber);
             temperatureSerie = newArray;
             temperaturesCapacity *= 2;
         }
