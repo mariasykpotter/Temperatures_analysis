@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysis {
     private double[] temperatureSerie;
-    static final int MIN_TEMP = -273;
+    static int MIN_TEMP = -273;
     private int temperaturesNumber;
     private int temperaturesCapacity;
 
@@ -95,8 +95,8 @@ public class TemperatureSeriesAnalysis {
                 closestNegative = temperatureSerie[i];
             }
         }
-        if (Math.abs(closestPositive - tempValue) <=
-                Math.abs(closestNegative - tempValue)) {
+        if (Math.abs(closestPositive - tempValue)
+                <= Math.abs(closestNegative - tempValue)) {
             return closestPositive;
         } else {
             return closestNegative;
