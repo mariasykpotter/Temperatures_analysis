@@ -3,9 +3,11 @@ package ua.edu.ucu.tempseries;
 import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysis {
+    static final int MIN_TEMP = -273;
     private double[] temperatureSerie;
     private int temperaturesNumber;
     private int temperaturesCapacity;
+
 
     public TemperatureSeriesAnalysis() {
         temperatureSerie = new double[1];
@@ -15,7 +17,7 @@ public class TemperatureSeriesAnalysis {
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
         for (double temperature : temperatureSeries) {
-            if (temperature < -273) {
+            if (temperature < MIN_TEMP) {
                 throw new InputMismatchException();
             }
         }
@@ -156,7 +158,7 @@ public class TemperatureSeriesAnalysis {
             temperaturesCapacity *= 2;
         }
         for (double temp : temps) {
-            if (temp < -273) {
+            if (temp < MIN_TEMP) {
                 throw new InputMismatchException();
             }
             temperatureSerie[temperaturesNumber] = temp;
